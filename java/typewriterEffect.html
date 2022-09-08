@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typewriter Effect</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <p id="message"></p>
+    <script src="java/java.js"></script>
+<script> 
+
+span 
+{
+    animation: blinker 1s linear infinite;    //speed of blink
+}
+@keyframes blinker{                          // animation for blink
+    50%{
+        opacity: 0;
+    }
+}
+</script>
+<script>
+    var messageArray = ['Typewriter Effect'];  //message goes here
+    var textPosition = 0;
+    var speed = 300;       // speed of auto type
+
+typewriter = () => {
+  document.querySelector("#message")       //id for call
+  .innerHTML = messageArray[0]
+  .substring(0, textPosition) + "<span>\u25ae</span>";  //this is the square that moves when typing, 
+                                                        //   try changing the number to 26 - 27 for options almost any number
+  if(textPosition++ != messageArray[0].length)
+  setTimeout(typewriter, speed);
+}
+
+window.addEventListener("load", typewriter);     //calls tupwriter on load..
+</script>
+</body>
+</html>
